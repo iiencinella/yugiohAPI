@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yu-Gi-Oh! APP</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Yu-Gi-Oh!</h1>
+    <p>App searching card game</p>
+    <form search-form action="submit">
+      <label for="search">
+        <input search-input type="text" name="cardName" autocomplete="off">
+      </label>
+      <button type="submit">Search Card</button>
+    </form>
+
+    <div data-notifications class="notification hidden">
+      <p data-toast></p>
+    </div>
+
+    <div data-card class="data-card hidden">
+      <div class="card-data">
+        <p card-name></p>
+        <img card-img>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
