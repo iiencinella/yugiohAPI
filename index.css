@@ -1,3 +1,9 @@
+body {
+  background: #333333;
+  background: -webkit-linear-gradient(to bottom, #dd1818, #e3da28);
+  background: linear-gradient(to bottom, #dd1818, #e3da28);
+}
+
 .card_list {
   display: grid;
   gap: 20px;
@@ -8,13 +14,16 @@
 .card_info {
   height: 100%;
   width: 100%;
-  border: 1 1 solid black;
+  border: 1px solid black;
   margin: 1rem;
+  margin-bottom: 0;
 }
 
 .card_info p {
   height: 10%;
   width: 100%;
+  margin: 0;
+  text-align: center;
 }
 
 .card_info img {
