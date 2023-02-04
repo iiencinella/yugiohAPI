@@ -1,0 +1,23 @@
+.card_list {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 300px;
+}
+
+.card_info {
+  height: 100%;
+  width: 100%;
+  border: 1 1 solid black;
+  margin: 1rem;
+}
+
+.card_info p {
+  height: 10%;
+  width: 100%;
+}
+
+.card_info img {
+  height: 90%;
+  width: 100%;
+}

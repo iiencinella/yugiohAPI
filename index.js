@@ -60,7 +60,7 @@ async function getAndDisplayCard(name, search) {
 function displayCard(card) {
   card.data.forEach(element => {
     const divCardData = document.createElement('div');
-    divCardData.classList.add('card-data');
+    divCardData.classList.add('card_info');
 
     const pCardData = document.createElement('p');
     pCardData.textContent = element.name;
@@ -75,12 +75,6 @@ function displayCard(card) {
     divCardData.appendChild(imgCardData);
 
     dataCardElement.appendChild(divCardData);
-
-    // cardNameElement.textContent = element.name;
-    // cardImgElement.setAttribute('src',
-    // element.card_images[0].image_url);
-    // cardImgElement.setAttribute('alt', element.name);
-    // cardImgElement.setAttribute('title', element.name);
     
     dataCardElement.classList.remove('hidden');
   });
