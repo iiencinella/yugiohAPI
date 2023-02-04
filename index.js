@@ -33,20 +33,23 @@ const prefixURL = 'api/v7/cardinfo.php';
 // event listeners
 searchForm.addEventListener('submit', handleFormSubmit);
 
+
 async function handleFormSubmit(event) {
   event.preventDefault();
   const form = Object.fromEntries(new FormData(event.target));
-  getAndDisplayCard(form.cardName.toLowerCase());
+  getAndDisplayCard(form.cardName.toLowerCase(), form.search);
 }
 
-async function getAndDisplayCard(name) {
+async function getAndDisplayCard(name, search) {
   notifyUser('Buscando...', 'toast-info');
   clearResults();
   clearNotifications();
 
-    const card = await fetchFromAPI('name', name);
-
-  console.log(card);
+  let card;
+  if (search == 'oneCard')
+    card = await fetchFromAPI('name', name);
+  else
+    card = await fetchFromAPI('fname', name);
 
   if (card) {
     clearNotifications();
@@ -55,17 +58,39 @@ async function getAndDisplayCard(name) {
 }
 
 function displayCard(card) {
-  cardNameElement.textContent = card.data[0].name;
-  cardImgElement.setAttribute('src',
-    card.data[0].card_images[0].image_url);
-  cardImgElement.setAttribute('alt', card.data[0].name);
-  cardImgElement.setAttribute('title', card.data[0].name);
+  card.data.forEach(element => {
+    const divCardData = document.createElement('div');
+    divCardData.classList.add('card-data');
 
-  dataCardElement.classList.remove('hidden');
+    const pCardData = document.createElement('p');
+    pCardData.textContent = element.name;
+
+    const imgCardData = document.createElement('img');
+    imgCardData.setAttribute('src',
+    element.card_images[0].image_url);
+    imgCardData.setAttribute('alt', element.name);
+    imgCardData.setAttribute('title', element.name);
+
+    divCardData.appendChild(pCardData);
+    divCardData.appendChild(imgCardData);
+
+    dataCardElement.appendChild(divCardData);
+
+    // cardNameElement.textContent = element.name;
+    // cardImgElement.setAttribute('src',
+    // element.card_images[0].image_url);
+    // cardImgElement.setAttribute('alt', element.name);
+    // cardImgElement.setAttribute('title', element.name);
+    
+    dataCardElement.classList.remove('hidden');
+  });
 }
 
 function clearResults() {
   dataCardElement.classList.add('hidden');
+  while(dataCardElement.firstChild) {
+    dataCardElement.removeChild(dataCardElement.firstChild);
+  }
 }
 
 // Action FETCH
@@ -80,6 +105,8 @@ async function myFetch(...options) {
 
 async function fetchFromAPI(resource, queryParams) {
   requestURL.pathname = `${prefixURL}`;
+  requestURL.searchParams.delete('name');
+  requestURL.searchParams.delete('fname');
   requestURL.searchParams.set(`${resource}`, `${queryParams}`);
   let data = '';
   try {

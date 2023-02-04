@@ -17,6 +17,18 @@
         <input search-input type="text" name="cardName" autocomplete="off">
       </label>
       <button type="submit">Search Card</button>
+
+      <fieldset>
+        <legend>Select search option</legend>
+        <div>
+          <input type="radio" name="search" id="oneCard" value="oneCard" checked>
+            <label for="oneCard">One Card</label>
+          </input>
+          <input type="radio" name="search" id="similarCard" value="similarCard">
+            <label for="similarCard">Similar Cards</label>
+          </input>
+        </div>
+      </fieldset>
     </form>
 
     <div data-notifications class="notification hidden">
@@ -24,10 +36,10 @@
     </div>
 
     <div data-card class="data-card hidden">
-      <div class="card-data">
+      <!-- <div class="card-data">
         <p card-name></p>
         <img card-img>
-      </div>
+      </div> -->
     </div>
   </main>
 </body>
