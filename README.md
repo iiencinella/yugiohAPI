@@ -6,3 +6,4 @@ Portfolio HTML, CSS y Javascript que realiza consultas a la API de [Yu-Gi-Oh! Pr
 
 - Podes consultar 1 carta específica poniendo el nombre de la carta completa
 - Podes buscar todas las cartas que contengan la palabra que estas buscando
+- Puedes buscar arquetipos de cartas
