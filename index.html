@@ -5,27 +5,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yu-Gi-Oh! APP</title>
+
   <link rel="stylesheet" href="index.css">
   <script src="index.js" defer></script>
 </head>
 <body>
   <main>
-    <h1>Yu-Gi-Oh!</h1>
-    <p>App searching card game</p>
+    <div class="header_app">
+      <h1>Yu-Gi-Oh!</h1>
+      <p>Aplicación de búsqueda de cartas coleccionables</p>
+    </div>
     <form search-form action="submit">
       <label for="search">
         <input search-input type="text" name="cardName" autocomplete="off">
       </label>
-      <button type="submit">Search Card</button>
+      <button type="submit">Buscar</button>
 
       <fieldset>
-        <legend>Select search option</legend>
+        <legend>Selecciona una opción de búsqueda</legend>
         <div>
           <input type="radio" name="search" id="oneCard" value="oneCard" checked>
-            <label for="oneCard">One Card</label>
+            <label for="oneCard">Única carta</label>
           </input>
           <input type="radio" name="search" id="similarCard" value="similarCard">
-            <label for="similarCard">Similar Cards</label>
+            <label for="similarCard">Cartas que contengan la palabra</label>
+          </input>
+          <input type="radio" name="search" id="archetype" value="archetype">
+          <label for="archetype">Arquetipo</label>
           </input>
         </div>
       </fieldset>

@@ -46,10 +46,20 @@ async function getAndDisplayCard(name, search) {
   clearNotifications();
 
   let card;
-  if (search == 'oneCard')
-    card = await fetchFromAPI('name', name);
-  else
-    card = await fetchFromAPI('fname', name);
+  switch (search) {
+    case 'oneCard':
+      card = await fetchFromAPI('name', name);
+      break;
+    case 'similarCard':
+      card = await fetchFromAPI('fname', name);
+      break;
+    case 'archetype':
+      card = await fetchFromAPI('archetype', name);
+      break;
+    default:
+      card = await fetchFromAPI('', '');
+      break;
+  }
 
   if (card) {
     clearNotifications();

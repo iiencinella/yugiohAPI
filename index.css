@@ -2,13 +2,35 @@ body {
   background: #333333;
   background: -webkit-linear-gradient(to bottom, #dd1818, #e3da28);
   background: linear-gradient(to bottom, #dd1818, #e3da28);
+  width: 98%;
+  height: 96%;
+}
+
+.header_app {
+  text-align: center;
+}
+
+h1 {
+  color: #e3da28;
+  filter: drop-shadow(0px 0px 5px #000);
+}
+
+form {
+  text-align: center;
+}
+
+fieldset {
+  width: 40%;
+  margin-right: 30%;
+  margin-left: 30%;
 }
 
 .card_list {
+  margin: 0;
   display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 200px));
   grid-auto-rows: 300px;
+  gap: 20px;
 }
 
 .card_info {
@@ -16,7 +38,7 @@ body {
   width: 100%;
   border: 1px solid black;
   margin: 1rem;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .card_info p {
